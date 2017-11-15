@@ -12,13 +12,16 @@
 
 ActiveRecord::Schema.define(version: 20171115022409) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
     t.string "resource_type"
-    t.integer "resource_id"
+    t.bigint "resource_id"
     t.string "author_type"
-    t.integer "author_id"
+    t.bigint "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
@@ -56,7 +59,7 @@ ActiveRecord::Schema.define(version: 20171115022409) do
     t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "category_id"
+    t.bigint "category_id"
     t.string "image"
     t.string "image_file_name"
     t.string "image_content_type"
@@ -65,4 +68,5 @@ ActiveRecord::Schema.define(version: 20171115022409) do
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
+  add_foreign_key "products", "categories"
 end
