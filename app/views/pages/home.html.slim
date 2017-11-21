@@ -1,3 +1,4 @@
 - @products.each do |product|
   p.name = product.name
   p.price = product.price
+  p.image = image_tag product.image.url(:medium)

@@ -1,0 +1,75 @@
+.header-top
+        .wrap
+          .header-top-left
+            .box
+              select.dropdown tabindex="4"
+                option.label value="" Language:
+                option value="1" English
+                option value="2" French
+                option value="3" German
+            .box1
+              select.dropdown tabindex="4"
+                option.label value="" Currency:
+                option value="1" $ Dollar
+                option value="2" € Euro
+            .clear
+            .cssmenu
+              ul
+                li.active
+                  = link_to "Account", home_path                  
+                li
+                  = link_to "Wishlist", home_path
+                li 
+                  = link_to "Checkout", home_path
+                li 
+                  = link_to "Log In", home_path
+                li 
+                  = link_to "Sign Up", home_path
+            .clear
+
+
+
+
+            .header-bottom
+        .wrap
+          .header-bottom-left
+            .logo
+              = link_to(image_tag("logo.png"), home_path)
+            .menu
+              ul.megamenu.skyblue
+                li.active.grid
+                  = link_to "Home", home_path
+                li 
+                  = link_to "women", home_path, :class => 'color4'
+                  .megapanel
+                    .row
+                      .col1
+                        .h_nav
+                          h4 Contact Lenses
+                          ul
+                            li
+                              = link_to "Daily Wear", home_path
+                            li
+                              = link_to "Daily Wear", home_path
+                            li
+                              = link_to "Daily Wear", home_path
+                      .col1
+                        .h_nav
+                          h4 Contact Lenses
+                          ul
+                            li
+                              = link_to "Daily Wear", home_path
+                            li
+                              = link_to "Daily Wear", home_path
+                            li
+                              = link_to "Daily Wear", home_path
+                      .col1
+                        .h_nav
+                          h4 Contact Lenses
+                          ul
+                            li
+                              = link_to "Daily Wear", home_path
+                            li
+                              = link_to "Daily Wear", home_path
+                            li
+                              = link_to "Daily Wear", home_path

@@ -1,21 +1,35 @@
 doctype html
 html
   head
-    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
     title Wholesale City Cannabis
+    meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = stylesheet_link_tag    'https://www.w3schools.com/w3css/4/w3.css'
-    = stylesheet_link_tag    "https://fonts.googleapis.com/css?family=Roboto"
-    = stylesheet_link_tag    "https://fonts.googleapis.com/css?family=Montserrat"
-    = stylesheet_link_tag    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    css:
-      .w3-sidebar a {font-family: "Roboto", sans-serif}
-      body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif}
+    = stylesheet_link_tag    'css/style'
+    = stylesheet_link_tag    'css/form'
+    = stylesheet_link_tag    "http://fonts.googleapis.com/css?family=Exo+2"
 
-  body.w3-content style="max-width:1200px"    
-    = render partial: 'common/navigation'     
+    = javascript_include_tag 'js/jquery1.min.js'
+
+    /! start menu
+    = stylesheet_link_tag    'css/megamenu'
+    = javascript_include_tag 'js/megamenu'
+    javascript:
+      $(document).ready(function(){$(".megamenu").megamenu();});
+
+    /! start slider
+    = stylesheet_link_tag    'css/fwslider'
+    = javascript_include_tag 'js/jquery-ui.min'
+    = javascript_include_tag 'js/css3-mediaqueries'
+    = javascript_include_tag 'js/fwslider'
+    /! end slider
+    
+    = javascript_include_tag 'js/jquery.easydropdown.js'
+
+    body
+      = render partial: 'common/header' 
+      = render partial: 'common/navigation' 
+       
     //= render partial: 'common/page'
     = yield
     = render partial: 'common/footer'

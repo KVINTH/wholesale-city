@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   get 'pages/home'
   get 'pages/products', as: 'products'
   get 'pages/about', as: 'about'
-  get 'pages/contac', as: 'contact'
+  get 'pages/contact', as: 'contact'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
