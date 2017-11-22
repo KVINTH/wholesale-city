@@ -5,32 +5,36 @@ html
     meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = stylesheet_link_tag    'css/style'
-    = stylesheet_link_tag    'css/form'
+    //= stylesheet_link_tag    'css/style'
+    //= stylesheet_link_tag    'css/form'
     = stylesheet_link_tag    "http://fonts.googleapis.com/css?family=Exo+2"
 
-    = javascript_include_tag 'js/jquery1.min.js'
+    //= javascript_include_tag 'js/jquery1.min.js'
 
     /! start menu
-    = stylesheet_link_tag    'css/megamenu'
-    = javascript_include_tag 'js/megamenu'
+    //= stylesheet_link_tag    'css/megamenu'
+    //= javascript_include_tag 'js/megamenu'
     javascript:
       $(document).ready(function(){$(".megamenu").megamenu();});
 
     /! start slider
-    = stylesheet_link_tag    'css/fwslider'
-    = javascript_include_tag 'js/jquery-ui.min'
-    = javascript_include_tag 'js/css3-mediaqueries'
-    = javascript_include_tag 'js/fwslider'
+    //= stylesheet_link_tag    'css/fwslider'
+    //= javascript_include_tag 'js/jquery-ui.min'
+    //= javascript_include_tag 'js/css3-mediaqueries'
+    //= javascript_include_tag 'js/fwslider'
     /! end slider
     
-    = javascript_include_tag 'js/jquery.easydropdown.js'
+    //= javascript_include_tag 'js/jquery.easydropdown.js'
 
     body
       = render partial: 'common/header' 
       = render partial: 'common/navigation' 
        
     //= render partial: 'common/page'
+    = form_tag(products_path, :method => "get", id: "search-form") do 
+      = text_field_tag :search, params[:search], placeholder: "Search Products" 
+      = submit_tag "Search", :name => nil  
+
     = yield
     = render partial: 'common/footer'
   

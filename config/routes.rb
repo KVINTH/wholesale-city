@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   # Product Routes
   get 'products/', to: 'products#all', as: 'products'
+  get 'products/all', to: 'products#all'
   get 'products/:number', to: 'products#show', as: 'product'
   get 'products/categories/:string', to: 'products#category', as: 'category'
   

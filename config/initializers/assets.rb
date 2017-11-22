@@ -13,4 +13,4 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 
-Rails.application.config.assets.precompile += %w( css/style.css css/form.css js/jquery1.min.js css/megamenu js/megamenu css/fwslider js/jquery-ui.min js/css3-mediaqueries js/fwslider js/jquery.easydropdown )
+# Rails.application.config.assets.precompile += %w( css/style.css css/form.css js/jquery1.min.js css/megamenu js/megamenu css/fwslider js/jquery-ui.min js/css3-mediaqueries js/fwslider js/jquery.easydropdown )
