@@ -1,3 +1,9 @@
+p Browse by Category:
+ul 
+  li = link_to 'Indica', category_path('indica')
+  li = link_to 'Sativa', category_path('sativa')
+  li = link_to 'Hybrid', category_path('hybrid')  
+  
   p.name = @product.name
   p.price = @product.price
   p.image = image_tag @product.image.url(:medium)

@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   root 'pages#home', as: 'home'
   get 'pages/home'
   # get 'pages/products', as: 'products'
-  get 'pages/about', as: 'about'
-  get 'pages/contact', as: 'contact'
+  # get 'pages/about', as: 'about'
+  # get 'pages/contact', as: 'contact'
+  get 'pages/:string', to: 'pages#show', as: 'page'
 
   # Product Routes
   get 'products/', to: 'products#all', as: 'products'

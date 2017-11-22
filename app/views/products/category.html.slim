@@ -1,3 +1,9 @@
+p Browse by Category:
+ul 
+  li = link_to 'Indica', category_path('indica')
+  li = link_to 'Sativa', category_path('sativa')
+  li = link_to 'Hybrid', category_path('hybrid')
+  
 - @products.each do |product|
   p.name = product.name
   p.price = product.price
