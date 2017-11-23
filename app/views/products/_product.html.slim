@@ -1,4 +1,4 @@
 .product
-  h2 = product.name
+  h2 = link_to product.name, product_path(product)
   .image_container = image_tag product.image.url(:medium)
   .product_price = product.price
