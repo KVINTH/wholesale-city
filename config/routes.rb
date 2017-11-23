@@ -16,8 +16,10 @@ Rails.application.routes.draw do
   # Product Routes
   get 'products/', to: 'products#all', as: 'products'
   get 'products/all', to: 'products#all'
-  get 'products/:number', to: 'products#show', as: 'product'
+  get 'products/show/:number', to: 'products#show', as: 'product'
   get 'products/categories/:string', to: 'products#category', as: 'category'
+  get 'products/new', to: 'products#new', as: 'new_products'
+  get 'products/updated', to: 'products#updated', as: 'updated_products'
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
