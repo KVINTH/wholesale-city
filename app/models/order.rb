@@ -4,10 +4,10 @@ class Order < ApplicationRecord
   has_many :order_items
 
   # set up callbacks
-  before_create :set_order_status
+  before_validation :set_order_status
   before_save :update_subtotal
 
-  def :update_subtotal
+  def update_subtotal
     order_items.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price) : 0 }.sum
   end
 

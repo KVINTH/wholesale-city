@@ -2,7 +2,7 @@ class Product < ApplicationRecord
     belongs_to :category
     has_many :order_items
 
-    default_scope { where(active: true) }
+    #default_scope { where(active: true) }
 
     validates :name, presence: true, uniqueness: true
     validates :description, presence: true
