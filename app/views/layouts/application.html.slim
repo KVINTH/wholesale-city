@@ -14,9 +14,6 @@ html
     /! start menu
     //= stylesheet_link_tag    'css/megamenu'
     //= javascript_include_tag 'js/megamenu'
-    javascript:
-      $(document).ready(function(){$(".megamenu").megamenu();});
-
     /! start slider
     //= stylesheet_link_tag    'css/fwslider'
     //= javascript_include_tag 'js/jquery-ui.min'
@@ -25,16 +22,30 @@ html
     /! end slider
     
     //= javascript_include_tag 'js/jquery.easydropdown.js'
+    = javascript_include_tag 'application', 'data-turbolinks=-track' => true
+    - if request.ssl?
+      = stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'
+      = javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'
+    - else 
+      = stylesheet_link_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'
+      = javascript_include_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'
 
     body
       = render partial: 'common/header' 
       = render partial: 'common/navigation' 
+      .container
+        .row
+          .col-xs-6
+            h1 = link_to "My Store", root_path
+          .col-xs-6.text-right
+            h1.cart-text = render 'layouts/cart_text'
+      
        
-    //= render partial: 'common/page'
-    = form_tag(products_path, :method => "get", id: "search-form") do 
-      = text_field_tag :search, params[:search], placeholder: "Search Products" 
-      = submit_tag "Search", :name => nil  
+    / //= render partial: 'common/page'
+    / = form_tag(products_path, :method => "get", id: "search-form") do 
+    /   = text_field_tag :search, params[:search], placeholder: "Search Products" 
+    /   = submit_tag "Search", :name => nil  
 
     = yield
-    = render partial: 'common/footer'
+    / = render partial: 'common/footer'
   

@@ -1,10 +1,12 @@
 class ProductsController < ApplicationController
   def all
-    if params[:search]
-      @products = Product.search(params[:search]).order("created_at DESC").page(params[:page]).per(5)
-    else
-      @products = Product.all.order("created_at DESC").page(params[:page]).per(5)
-    end
+    @products = Product.all
+    @order_item = current_order.order_items.new
+    # if params[:search]
+    #   @products = Product.search(params[:search]).order("created_at DESC").page(params[:page]).per(5)
+    # else
+    #   @products = Product.all.order("created_at DESC").page(params[:page]).per(5)
+    # end
   end
 
   def category
