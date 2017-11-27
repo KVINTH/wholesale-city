@@ -1,8 +1,10 @@
 / = render partial: 'products/category_nav'
 / = render partial: 'products/product', collection: @products
 / = paginate @products
-
+= render partial: 'products/category_nav'
 .row
   .col-xs-6.col-xs-offset-3
     - @products.each do |product|
       = render "product_row", product: product, order_item: @order_item
+
+= paginate @products

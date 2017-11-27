@@ -4,7 +4,9 @@ ul
   li = link_to 'Sativa', category_path('sativa')
   li = link_to 'Hybrid', category_path('hybrid')
   
-- @products.each do |product|
-  p.name = product.name
-  p.price = product.price
-  p.image = image_tag product.image.url(:medium)
+.row
+  .col-xs-6.col-xs-offset-3
+    - @products.each do |product|
+      = render "product_row", product: product, order_item: @order_item
+
+= paginate @products

@@ -1,2 +1,4 @@
 = render partial: 'products/category_nav'
-= render partial: 'products/product', object: @product
+//= render partial: 'products/product', object: @product
+
+= render "product_row", product: @product, order_item: @order_item
