@@ -62,3 +62,4 @@ gem 'slim'
 gem 'slim-rails'
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem 'taps'
+gem 'stripe'
