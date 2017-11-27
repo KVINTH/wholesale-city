@@ -1,23 +1,20 @@
 Rails.application.routes.draw do
-
-  get 'charges/new'
-
-  get 'charges/create'
-
-  get 'order_items/create'
-  get 'order_items/update'
-  get 'order_items/destroy'
+  
   get 'carts/show'
   get 'cart_items/create'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
+  # resources for shopping cart
   resources :products, only: [:all]
   resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy]
-  
-  # Page Routes
+
+  # resources for stripe checkout
+  resources :charges, only: [:new, :create]
+
+  # Page Routes   
   root to: 'products#all'
 
   # get 'pages/home'
