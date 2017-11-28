@@ -1,6 +1,25 @@
 Rails.application.routes.draw do
   
+  get 'sessions/new'
+
+  get 'signup', to: 'users#new', as: 'signup'
+  get 'login', to: 'sessions#new', as: 'login'
+  get 'logout', to: 'sessions#destroy', as: 'logout'
+  
+  get 'users/new'
+
+  get 'users/create'
+
+  get 'users/allowed_params'
+
+  get 'users_controller/new'
+
+  get 'users_controller/create'
+
+  get 'users_controller/allowed_params'
+
   get 'carts/show'
+  get 'cart/checkout', to: 'carts#checkout' 
   get 'cart_items/create'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -13,6 +32,10 @@ Rails.application.routes.draw do
 
   # resources for stripe checkout
   resources :charges, only: [:new, :create]
+
+  # resources for login
+  resources :users
+  resources :sessions
 
   # Page Routes   
   root to: 'products#all'

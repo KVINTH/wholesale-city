@@ -1,6 +1,21 @@
-.container
-        .row
-          .col-xs-6
-            h1 = link_to "Wholesale City Cannabis", root_path
-          .col-xs-6.text-right
-            h1.cart-text = render 'layouts/cart_text'
+nav.navbar.navbar-inverse.navbar-fixed-top
+  .container
+    .navbar-header
+      button.navbar-toggle.collapsed aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button" 
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      = link_to "Wholesale City Cannabis", root_path, class: "navbar-brand"
+    #navbar.navbar-collapse.collapse
+      = form_tag sessions_path, class: "navbar-form navbar-right"
+        - if logged_in?
+          = link_to 'Logout', sessions_path, method: :destroy
+        - else
+          .form-group
+            = text_field_tag :email, params[:email], class: "form-control", placeholder:"email"
+          .form-group
+            = password_field_tag :password, class: "form-control", placeholder: "password"
+          = submit_tag "Log In", class: "btn btn-success"
+          = link_to "Sign Up", new_user_path
+
