@@ -25,7 +25,7 @@
       p.text-right
         | Grand Total : #{@order.subtotal + (@order.subtotal * @user.province.gst_rate) + (@user.province.pst_rate) + (@user.province.hst_rate)}
 
-    = render "charges/new"
+    = render "charges/new", object: @order
     // order and address details saved to orders and users table
 
     // order is associated with user

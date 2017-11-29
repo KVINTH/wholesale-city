@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_current_user
-    User.current_user = session[:user_id]
+    ::User.current_user = session[:user_id]
   end
 
   private
