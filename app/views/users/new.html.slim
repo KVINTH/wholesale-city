@@ -20,4 +20,8 @@ h1 Sign Up
     br
     = f.password_field :password_confirmation
   .actions
+  .field
+    = f.label :province
+    br
+    = f.collection_select :province_id, Province.all, :id, :name
     = f.submit "Sign Up"
