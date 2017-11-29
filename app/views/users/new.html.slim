@@ -19,9 +19,21 @@ h1 Sign Up
     = f.label :password_confirmation
     br
     = f.password_field :password_confirmation
-  .actions
+  .field
+    = f.label :first_name
+    br
+    = f.text_field :first_name
+  .field
+    = f.label :last_name
+    br
+    = f.text_field :last_name
+  .field
+    = f.label :address
+    br
+    = f.text_field :address
   .field
     = f.label :province
     br
     = f.collection_select :province_id, Province.all, :id, :name
-    = f.submit "Sign Up"
+  .actions
+  = f.submit "Sign Up"

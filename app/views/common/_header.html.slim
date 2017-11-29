@@ -10,7 +10,7 @@ nav.navbar.navbar-inverse.navbar-fixed-top
     #navbar.navbar-collapse.collapse
       = form_tag sessions_path, class: "navbar-form navbar-right"
         - if logged_in?
-          = link_to 'Logout', sessions_path, method: :destroy
+          = link_to 'Logout', logout_path
         - else
           .form-group
             = text_field_tag :email, params[:email], class: "form-control", placeholder:"email"
