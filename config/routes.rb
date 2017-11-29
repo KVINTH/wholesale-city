@@ -7,19 +7,19 @@ Rails.application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout'
   
   get 'users/new'
-
+  get 'users/update'
   get 'users/create'
-
   get 'users/allowed_params'
 
   get 'users_controller/new'
 
   get 'users_controller/create'
+  get 'users_controller/update'
 
   get 'users_controller/allowed_params'
 
   get 'carts/show'
-  get 'cart/checkout', to: 'carts#checkout' 
+  get 'cart/checkout', to: 'carts#checkout', as: 'checkout'
   get 'cart_items/create'
 
   devise_for :admin_users, ActiveAdmin::Devise.config

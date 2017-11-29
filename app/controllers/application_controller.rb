@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery prepend: true
   helper_method :current_order, :logged_in?
+  before_action :set_current_user
 
   def current_order
     if !session[:order_id].nil?
@@ -8,6 +9,10 @@ class ApplicationController < ActionController::Base
     else 
       Order.new
     end
+  end
+
+  def set_current_user
+    User.current_user = session[:user_id]
   end
 
   private

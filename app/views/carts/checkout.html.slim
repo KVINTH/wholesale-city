@@ -1,0 +1,35 @@
+- if logged_in?
+  - if !@order_item.nil? && @order_item.errors.any?
+    .alert.alert-danger
+    ul
+    - @order_item.errors.full_messages.each do |msg|
+      li = msg
+    
+  - if @order_items.size == 0 
+    p.text-center
+      | There are no items in your shopping cart. Please #{link_to "go back", root_path} and add some items to your cart.
+  - else
+    // checkout stuff goes here
+    // system displays an invoice including taxes
+    h1.text-center Thank you for your order!
+    p.text-center Your order number is: #{@order.id}
+    - @order_items.each do |item|
+      p.text-center #{item.quantity} x #{item.product.name}
+      p.text-right
+        | GST : #{ (@order.subtotal * @user.province.gst_rate) }
+        //| GST : #{ (@order.subtotal * @user.province.gst_rate) }
+      p.text-right
+        | PST : #{ @order.subtotal * @user.province.pst_rate }
+      p.text-right
+        | HST : #{ @order.subtotal * @user.province.hst_rate }
+      p.text-right
+        | Grand Total : #{@order.subtotal + (@order.subtotal * @user.province.gst_rate) + (@user.province.pst_rate) + (@user.province.hst_rate)}
+
+    = render "charges/new"
+    // order and address details saved to orders and users table
+
+    // order is associated with user
+- else
+  p We're sorry. You must be signed in to complete an order.
+
+

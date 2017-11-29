@@ -12,7 +12,39 @@
   - @order_items.each do |order_item|
     = render 'carts/cart_row', product: order_item.product, order_item: order_item, show_total: true
     - total = total + order_item.total_price
+- if session[:user_id].nil?
+  p.text-center
+    | You must be signed in to continue check out.
+- else 
+  h3.text-center Enter your shipping information
+
+  = form_for @user do |f|
+    .form-group
+      = f.label :first_name
+      br
+      = f.text_field :first_name, class: "form-control"
+    .form-group
+      = f.label :last_name
+      br
+      = f.text_field :last_name, class: "form-control"
+    .form-group
+      = f.label :address
+      br
+      = f.text_field :address, class: "form-control"
+    .form-group
+      = f.label :province
+      br
+      = f.collection_select :province_id, Province.all, :id, :name
+    .actions
+      = f.submit "Save Shipping Information", class: "btn btn-primary"
+
   p.text-right
-    | Total before Taxes: #{ total }
-  h4.text-right
-    | Continue to Checkout
+    | GST : #{ total * @user.province.gst_rate }
+  p.text-right
+    | PST : #{ total * @user.province.pst_rate }
+  p.text-right
+    | HST : #{ total * @user.province.hst_rate }
+  p.text-right
+    | Grand Total : #{total + (total * @user.province.gst_rate) + (@user.province.pst_rate) + (@user.province.hst_rate)}
+  h4.text-right = link_to "Place Order", checkout_path
+  

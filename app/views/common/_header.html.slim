@@ -18,4 +18,5 @@ nav.navbar.navbar-inverse.navbar-fixed-top
             = password_field_tag :password, class: "form-control", placeholder: "password"
           = submit_tag "Log In", class: "btn btn-success"
           = link_to "Sign Up", new_user_path
-
+        h1 = render 'layouts/cart_text'
+      

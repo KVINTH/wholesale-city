@@ -1,0 +1,29 @@
+= form_tag charges_path do
+  article
+    - if flash[:error].present?
+      #error_explanation
+        p = flash[:error]
+    label.amount
+      span
+        | Amount: #{number_to_currency(@amount / 100)}
+
+  script.stripe-button data-amount="#{@amount}" data-description=("#{@description}") data-key="#{Rails.configuration.stripe[:publishable_key]}" data-locale="auto" src="https://checkout.stripe.com/checkout.js"
+
+/ <%= form_tag charges_path do %>
+/   <article>
+/     <% if flash[:error].present? %>
+/       <div id="error_explanation">
+/         <p><%= flash[:error] %></p>
+/       </div>
+/     <% end %>
+/     <label class="amount">
+/       <span>Amount: <%= number_to_currency(@amount / 100) %></span>
+/     </label>
+/   </article>
+
+/   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+/           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+/           data-description="<%= @description %>"
+/           data-amount="<%= @amount %>"
+/           data-locale="auto"></script>
+/ <% end %>
