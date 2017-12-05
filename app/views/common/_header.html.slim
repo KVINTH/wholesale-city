@@ -11,6 +11,8 @@ nav.navbar.navbar-inverse.navbar-fixed-top
       = form_tag sessions_path, class: "navbar-form navbar-right"
         - if logged_in?
           = link_to 'Logout', logout_path
+          br
+          = link_to 'Orders', orders_path
         - else
           .form-group
             = text_field_tag :email, params[:email], class: "form-control", placeholder:"email"

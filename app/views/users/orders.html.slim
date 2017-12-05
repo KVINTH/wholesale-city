@@ -1,0 +1,23 @@
+br/
+br/
+
+
+- @orders.each do |order| 
+  | Order ID: 
+  order = order.id
+  br
+  - total = 0
+  - order.order_items.each do |item|
+    | 
+      #{item.quantity} x #{item.product.name} .......... #{item.total_price}
+    - total = total + item.total_price
+    br
+  | Subtotal : #{total}
+  br
+  | Tax : #{ (total * @user.province.gst_rate) + (total * @user.province.pst_rate) + (total * @user.province.hst_rate)}
+  br
+  | Grand Total : #{ total + (total * @user.province.gst_rate) + (total * @user.province.pst_rate) + (total * @user.province.hst_rate)}
+  br
+  br
+  br
+    

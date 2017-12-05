@@ -2,6 +2,7 @@
   .row
     .col-xs-8
       h4 = link_to product.name, product_path(product)
+      = image_tag product.image.url(:medium)
     .col-xs-4
       = form_for order_item, remote: true do |f|
         h4.text-right 

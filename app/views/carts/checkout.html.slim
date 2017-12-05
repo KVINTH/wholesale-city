@@ -15,15 +15,16 @@
     p.text-center Your order number is: #{@order.id}
     - @order_items.each do |item|
       p.text-center #{item.quantity} x #{item.product.name}
-      p.text-right
-        | GST : #{ (@order.subtotal * @user.province.gst_rate) }
-        //| GST : #{ (@order.subtotal * @user.province.gst_rate) }
-      p.text-right
-        | PST : #{ @order.subtotal * @user.province.pst_rate }
-      p.text-right
-        | HST : #{ @order.subtotal * @user.province.hst_rate }
-      p.text-right
-        | Grand Total : #{@order.subtotal + (@order.subtotal * @user.province.gst_rate) + (@user.province.pst_rate) + (@user.province.hst_rate)}
+    p.text-right
+      | Subtotal : #{@order.subtotal}
+      | GST : #{ (@order.subtotal * @user.province.gst_rate) }
+      //| GST : #{ (@order.subtotal * @user.province.gst_rate) }
+    p.text-right
+      | PST : #{ @order.subtotal * @user.province.pst_rate }
+    p.text-right
+      | HST : #{ @order.subtotal * @user.province.hst_rate }
+    p.text-right
+      | Grand Total : #{@order.subtotal + (@order.subtotal * @user.province.gst_rate) + (@order.subtotal * @user.province.pst_rate) + (@order.subtotal * @user.province.hst_rate)}
 
     = render "charges/new", object: @order
     // order and address details saved to orders and users table

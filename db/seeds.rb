@@ -7,9 +7,25 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 # AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') #if Rails.env.development?
 
-# OrderStatus.delete_all
-# OrderStatus.create! id: 1, name: "In Progress"
-# OrderStatus.create! id: 2, name: "Placed"
+
+status_one = OrderStatus.find(1)
+status_one.name = "Unpaid"
+status_one.save
+
+status_two = OrderStatus.find(2)
+status_two.name = "Paid"
+status_two.save
+
+status_three = OrderStatus.find(3)
+status_three.name = "Shipped"
+status_three.save
+
+status_four = OrderStatus.find(4)
+status_four.name = "Cancelled"
+status_four.save
+
+# OrderStatus.create! id: 1, name: "Unpaid"
+# OrderStatus.create! id: 2, name: "Paid"
 # OrderStatus.create! id: 3, name: "Shipped"
 # OrderStatus.create! id: 4, name: "Cancelled"
 
@@ -27,72 +43,72 @@
 # Province.create! name: "Nunavut"
 # Province.create! name: "Yukon"
 
-provinces = Province.all
+# provinces = Province.all
 
-provinces.each do |province|
-  province.gst_rate = 0.05
-  province.save
-end
+# provinces.each do |province|
+#   province.gst_rate = 0.05
+#   province.save
+# end
 
-ab = Province.find(1)
-ab.pst_rate = 0
-ab.hst_rate = 0
-ab.save
+# ab = Province.find(1)
+# ab.pst_rate = 0
+# ab.hst_rate = 0
+# ab.save
 
-bc = Province.find(2)
-bc.pst_rate = 0.07
-bc.hst_rate = 0
-bc.save
+# bc = Province.find(2)
+# bc.pst_rate = 0.07
+# bc.hst_rate = 0
+# bc.save
 
-mb = Province.find(3)
-mb.pst_rate = 0.08
-mb.hst_rate = 0
-mb.save
+# mb = Province.find(3)
+# mb.pst_rate = 0.08
+# mb.hst_rate = 0
+# mb.save
 
-nb = Province.find(4)
-ab.pst_rate = 0
-nb.hst_rate = 0.15
-nb.save
+# nb = Province.find(4)
+# ab.pst_rate = 0
+# nb.hst_rate = 0.15
+# nb.save
 
-nf = Province.find(5)
-ab.pst_rate = 0
-nf.hst_rate = 0.15
-nf.save
+# nf = Province.find(5)
+# ab.pst_rate = 0
+# nf.hst_rate = 0.15
+# nf.save
 
-ns = Province.find(6)
-ab.pst_rate = 0
-ns.hst_rate = 0.15
-ns.save
+# ns = Province.find(6)
+# ab.pst_rate = 0
+# ns.hst_rate = 0.15
+# ns.save
 
-on = Province.find(7)
-ab.pst_rate = 0
-on.hst_rate = 0.13
+# on = Province.find(7)
+# ab.pst_rate = 0
+# on.hst_rate = 0.13
 
-pei = Province.find(8)
-ab.pst_rate = 0
-pei.hst_rate = 0.15
-pei.save
+# pei = Province.find(8)
+# ab.pst_rate = 0
+# pei.hst_rate = 0.15
+# pei.save
 
-qc = Province.find(9)
-qc.pst_rate = 0.0975
-qc.save
+# qc = Province.find(9)
+# qc.pst_rate = 0.0975
+# qc.save
 
-sk = Province.find(10)
-sk.pst_rate = 0.05
-sk.hst_rate = 0
-sk.save
+# sk = Province.find(10)
+# sk.pst_rate = 0.05
+# sk.hst_rate = 0
+# sk.save
 
-nwt = Province.find(11)
-nwt.pst_rate = 0
-nwt.hst_rate = 0
-nwt.save
+# nwt = Province.find(11)
+# nwt.pst_rate = 0
+# nwt.hst_rate = 0
+# nwt.save
 
-nv = Province.find(12)
-nv.pst_rate = 0
-nv.hst_rate = 0
-nv.save
+# nv = Province.find(12)
+# nv.pst_rate = 0
+# nv.hst_rate = 0
+# nv.save
 
-yk = Province.find(13)
-yk.pst_rate = 0
-yk.hst_rate = 0
-yk.save
+# yk = Province.find(13)
+# yk.pst_rate = 0
+# yk.hst_rate = 0
+# yk.save

@@ -37,7 +37,7 @@
       = f.collection_select :province_id, Province.all, :id, :name
     .actions
       = f.submit "Save Shipping Information", class: "btn btn-primary"
-- if @order_items.size > 0 
+- if @order_items.size > 0 && !session[:user_id].nil?
   p.text-right
     | GST : #{ total * @user.province.gst_rate }
   p.text-right

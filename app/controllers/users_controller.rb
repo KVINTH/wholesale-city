@@ -17,6 +17,11 @@ class UsersController < ApplicationController
     @user = User.find(session[:user_id])
   end
 
+  def orders
+    @user = User.find(session[:user_id])
+    @orders = @user.order.all
+  end
+
   private
   def allowed_params
     params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name, :address, :province_id)

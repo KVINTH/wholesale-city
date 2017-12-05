@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'users/update'
   get 'users/create'
   get 'users/allowed_params'
+  get 'users/orders', to: 'users#orders', as: 'orders'
 
   get 'users_controller/new'
 

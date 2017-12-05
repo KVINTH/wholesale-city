@@ -22,7 +22,7 @@ html
     /! end slider
     
     //= javascript_include_tag 'js/jquery.easydropdown.js'
-    = javascript_include_tag 'application', 'data-turbolinks=-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
     - if request.ssl?
       = stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'
       = javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'
@@ -34,11 +34,12 @@ html
       = render partial: 'common/header' 
       = render partial: 'common/navigation' 
        
-    //= render partial: 'common/page'
-    = form_tag(products_path, :method => "get", id: "search-form") do 
-      = text_field_tag :search, params[:search], placeholder: "Search Products" 
-      = submit_tag "Search", :name => nil  
+      //= render partial: 'common/page'
+      = form_tag(products_path, :method => "get", id: "search-form") do 
+        = text_field_tag :search, params[:search], placeholder: "Search Products" 
+        = select_tag :category, options_from_collection_for_select(Category.all, "id", "name"), include_blank: true
+        = submit_tag "Search", :name => nil  
 
-    = yield
+      = yield
     / = render partial: 'common/footer'
   
