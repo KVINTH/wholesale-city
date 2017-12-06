@@ -20,7 +20,7 @@ class ChargesController < ApplicationController
     order.total = (order.subtotal + order.tax).round(2)
     order.order_status = OrderStatus.find_by(name: "Paid")
     order.save
-    
+    order = Order.find(session[:order_id])
     amount_string = (order.total * 100)
     amount = strip_trailing_zero(amount_string)
     
