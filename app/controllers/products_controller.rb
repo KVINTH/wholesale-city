@@ -19,12 +19,12 @@ class ProductsController < ApplicationController
 
   def new
     #@products = Product.where(created_at: 1.week.ago .. Date.today).page(params[:page]).per(5)
-    @products = Product.where("DATE(created_at) >= ?", Date.today-7).page(params[:page]).per(5)
+    @products = Product.where("DATE(created_at) >= ?", Date.today-7).order("created_at DESC").page(params[:page]).per(5)
     @order_item = current_order.order_items.new
   end
 
   def updated
-    @products = Product.where("DATE(updated_at) >= ?", Date.today-1).page(params[:page]).per(5)
+    @products = Product.where("DATE(updated_at) = ?", Date.today).order("updated_at DESC").page(params[:page]).per(5)
     @order_item = current_order.order_items.new
   end
 
