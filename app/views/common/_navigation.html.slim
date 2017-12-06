@@ -1,5 +1,19 @@
-ul 
-  li = link_to 'Home', root_path
-  li = link_to 'Products', products_path
-  li = link_to 'About Us', page_path('about')
-  li = link_to 'Contact Us', page_path('contact')
+/ ul 
+/   li = link_to 'Home', root_path
+/   li = link_to 'Products', products_path
+/   li = link_to 'About Us', page_path('about')
+/   li = link_to 'Contact Us', page_path('contact')
+
+nav.navbar.navbar-inverse
+  .container-fluid
+    ul.nav.navbar-nav
+      li = link_to 'Home', root_path, class: 'active'
+      li = link_to 'Products', products_path
+      li = link_to 'About Us', page_path('about')
+      li = link_to 'Contact Us', page_path('contact')
+
+    = form_tag(products_path, :method => "get", id: "search-form", class: "navbar-form navbar-left") do 
+      .form-group
+        = text_field_tag :search, params[:search], placeholder: "Search Products", class: "form-control"
+        = select_tag :category, options_from_collection_for_select(Category.all, "id", "name"), include_blank: true
+      = submit_tag "Search", :name => nil, class: "btn btn-default"

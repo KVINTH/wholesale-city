@@ -11,5 +11,6 @@ ActiveAdmin.register Order do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
+  #actions :none, except: [:update]
   permit_params :order_status_id
 end

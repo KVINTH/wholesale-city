@@ -35,11 +35,6 @@ html
       = render partial: 'common/navigation' 
        
       //= render partial: 'common/page'
-      = form_tag(products_path, :method => "get", id: "search-form") do 
-        = text_field_tag :search, params[:search], placeholder: "Search Products" 
-        = select_tag :category, options_from_collection_for_select(Category.all, "id", "name"), include_blank: true
-        = submit_tag "Search", :name => nil  
-
       = yield
     / = render partial: 'common/footer'
   
